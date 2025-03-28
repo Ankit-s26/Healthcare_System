@@ -13,6 +13,7 @@ const activeEmergencies = new Map();
 const connectedResponders = new Map(); // responderId -> {ws, location, status, details}
 const connectedVolunteers = new Map(); // volunteerId -> {ws, location, status, skills, details}
 
+
 // Volunteer skill classifications
 const VOLUNTEER_SKILLS = {
   medical: ['first-aid', 'cpr', 'emt', 'nurse', 'doctor'],
@@ -230,6 +231,9 @@ app.get('/api/emergency/:id', (req, res) => {
 
 // Helper functions
 function createEmergency(data) {
+
+
+  
   // Validate Indian phone number
   const indianPhoneRegex = /^\+91[6-9]\d{9}$/;
   if (!indianPhoneRegex.test(data.contact)) {
